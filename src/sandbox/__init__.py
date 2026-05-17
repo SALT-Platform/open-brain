@@ -13,6 +13,7 @@ Usage:
 
 import os
 import asyncio
+import shlex
 from datetime import timedelta
 from typing import Optional, Dict, Any, List
 from dataclasses import dataclass
@@ -166,7 +167,7 @@ class SandboxExecutor:
         Returns:
             ExecutionResult with stdout, stderr
         """
-        return await self.run(f"python3 -c '{code.replace(\"'\", \"'\\\")\")}'", timeout=timeout)
+        return await self.run(f"python3 -c {shlex.quote(code)}", timeout=timeout)
 
 
 class DirectExecutor:

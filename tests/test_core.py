@@ -238,22 +238,21 @@ class TestDatabaseQueries:
         
         mock_cursor.return_value = mock_ctx
         
-        # Mock fetchone for different queries
+        # Mock fetchone for count queries
         call_count = [0]
         def mock_fetchone():
             call_count[0] += 1
             if call_count[0] == 1:
                 return {'total': 100}
             elif call_count[0] == 2:
-                return [{'source': 'test', 'count': 50}]
-            elif call_count[0] == 3:
-                return [{'tag': 'python', 'count': 10}]
-            elif call_count[0] == 4:
                 return {'count': 25}
             return {'count': 30}
         
         mock_ctx.fetchone.side_effect = mock_fetchone
-        mock_ctx.fetchall.return_value = []
+        mock_ctx.fetchall.side_effect = [
+            [{'source': 'test', 'count': 50}],
+            [{'tag': 'python', 'count': 10}],
+        ]
         
         stats = queries.get_memory_stats()
         
