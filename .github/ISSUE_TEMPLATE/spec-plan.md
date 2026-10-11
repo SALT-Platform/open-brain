@@ -381,7 +381,7 @@ Derived on 2026-10-11 from the files on `master`. The gates below refer to these
 | Tracked environment files (must hold no real secrets) | `.env` |
 | Deployment configuration | `Dockerfile`, `docker-compose.yml` |
 | Runtime pins | Python `>=3.11` (`pyproject.toml`) |
-| User interface | none detected |
+| User interface | Streamlit app |
 | Default branch | `master` |
 
 ### 19.1 Code & CI
@@ -410,7 +410,7 @@ Derived on 2026-10-11 from the files on `master`. The gates below refer to these
 - [ ] ⟨conditional: the change alters a JSON schema or stored data shape⟩ Change is backward-compatible or the migration path is documented
 - [ ] ⟨conditional: the change mutates data⟩ Audit log entries emitted for all data-mutating operations
 
-### 19.3 Frontend & UI/UX — ⟨conditional: the change touches a user interface (none detected in §19.0)⟩
+### 19.3 Frontend & UI/UX — ⟨conditional: the change touches the user interface (this repository: Streamlit app)⟩
 
 - [ ] ⟨conditional: the change touches UI⟩ Shared layout and style patterns reused; no inline styles duplicating the repository's stylesheets
 - [ ] ⟨conditional: the change touches UI⟩ WCAG AA contrast compliance maintained (per the repository's style guide, if it has one)
