@@ -297,7 +297,9 @@ class OpenAIEmbedder(BaseEmbedder):
 class OllamaEmbedder(BaseEmbedder):
     """Local Ollama embedder."""
     
-    def __init__(self, config: EmbedderConfig):
+    def __init__(self, config: EmbedderConfig = None):
+        if config is None:
+            config = EmbedderConfig.get_instance()
         self.config = config
         self.model = config.model or 'nomic-embed-text'
         self.base_url = config.ollama_base_url
